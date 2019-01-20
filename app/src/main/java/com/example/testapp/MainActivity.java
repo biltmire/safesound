@@ -9,18 +9,24 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 // import android.content.pm.PackageManager;
 
-public class MainActivity extends AppCompatActivity {
 
-    @Override
+
+public class MainActivity extends AppCompatActivity {
+    static List<String> numbers = new ArrayList<>();
+    static String filename = "Contacts.txt";
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<contact> contacts = new ArrayList<contact>();
+
 
         Button callsetbtn = (Button) findViewById(R.id.callsetbtn);
         callsetbtn.setOnClickListener(new View.OnClickListener() {
@@ -29,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent startIntent = new Intent( getApplicationContext() , SecondActivity.class);
                 startActivity(startIntent);
             }
-        });
+        });String filename = "Contacts.txt";
 
         Button msgsetbtn = (Button) findViewById(R.id.msgsetbtn);
         callsetbtn.setOnClickListener(new View.OnClickListener() {
@@ -55,5 +61,24 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    protected int loadContacts()
+    {
+        try
+        {
+            String line = null;
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            while ((line = br.readLine()) != null)
+            {
+                if (line.trim().length()==0) continue;	//skips empty line
+                numbers.add(line);
+            }
+            br.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return numbers.size();
     }
 }

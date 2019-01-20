@@ -4,7 +4,10 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -24,8 +27,8 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
 
-        final TextView callkey = (TextView) findViewById(R.id.callkey);
-        final TextView callnum = (TextView) findViewById(R.id.callnum);
+        final EditText callkey = (EditText) findViewById(R.id.callkey);
+        final EditText callnum = (EditText) findViewById(R.id.callnum);
 
         Button callbtn = (Button) findViewById(R.id.callbtn);
 
@@ -34,13 +37,11 @@ public class SecondActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String keystr = callkey.getText().toString();
                 int numstr = Integer.parseInt(callnum.getText().toString());
-
-                String filename = "Contacts.txt";
                 String fileContents = keystr + ":"  + numstr;
 
                 PrintWriter out = null;
                 try{
-                    out = new PrintWriter(new FileOutputStream(filename, true));
+                    out = new PrintWriter(new FileOutputStream(MainActivity.filename, true));
                 }
                 catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -50,6 +51,10 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-
+        ListView calllistview = (ListView) findViewById(R.id.calllistview);
+       // for (contact each : contacts){
+//
+      //  }
+       // calllistview.setAdapter(new ArrayAdapter<String>(this , R.layout.call_listview , items));
     }
 }
