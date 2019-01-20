@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity">
+
+    <TextView
+        android:id="@+id/msg_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="36dp"
+        android:text="Call Settings"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/msgkey"
+        android:layout_width="254sp"
+        android:layout_height="45sp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:ems="10"
+        android:hint="Change  KeyWord"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/msgbtn"
+        app:layout_constraintTop_toBottomOf="@+id/msg_head" />
+
+    <EditText
+        android:id="@+id/msgnum"
+        android:layout_width="258sp"
+        android:layout_height="44sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:ems="10"
+        android:hint="Enter Phone Number"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/keychangebtn"
+        app:layout_constraintTop_toBottomOf="@+id/msgkey" />
+
+    <TextView
+        android:id="@+id/msg_head2"
+        android:layout_width="199dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="44dp"
+        android:text="Current Word :"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/msgnum" />
+
+    <ListView
+        android:id="@+id/msglistview"
+        android:layout_width="371dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="44dp"
+        android:scrollbars="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/msg_head2" />
+
+    <TextView
+        android:id="@+id/msgkeytv"
+        android:layout_width="99sp"
+        android:layout_height="54dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toEndOf="@+id/msg_head2"
+        app:layout_constraintTop_toBottomOf="@+id/keychangebtn" />
+
+    <Button
+        android:id="@+id/msgbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Change"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/msg_head" />
+
+    <Button
+        android:id="@+id/keychangebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/msgbtn" />
+
+</android.support.constraint.ConstraintLayout>
