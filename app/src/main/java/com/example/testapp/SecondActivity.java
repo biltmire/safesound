@@ -58,6 +58,7 @@ public class SecondActivity extends AppCompatActivity {
 
     public void addkey(String filename , String num)
     {
+        num = num + "\n";
         try
         {
             FileOutputStream fos = openFileOutput(filename, Context.MODE_PRIVATE | Context.MODE_APPEND);
