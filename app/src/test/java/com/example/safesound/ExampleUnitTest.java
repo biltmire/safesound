@@ -1,4 +1,4 @@
-package com.example.safeword;
+package com.example.safesound;
 
 import org.junit.Test;
 
