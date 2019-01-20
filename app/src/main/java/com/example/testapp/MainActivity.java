@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+
+import java.util.ArrayList;
+import java.util.List;
 // import android.content.pm.PackageManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        List<contact> contacts = new ArrayList<contact>();
 
         Button callsetbtn = (Button) findViewById(R.id.callsetbtn);
         callsetbtn.setOnClickListener(new View.OnClickListener() {

@@ -11,7 +11,9 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.lang.String;
 
 public class SecondActivity extends AppCompatActivity {
@@ -33,18 +35,21 @@ public class SecondActivity extends AppCompatActivity {
                 String keystr = callkey.getText().toString();
                 int numstr = Integer.parseInt(callnum.getText().toString());
 
-                String filename = "Contacts";
+                String filename = "Contacts.txt";
                 String fileContents = keystr + ":"  + numstr;
-                FileOutputStream outputStream;
 
-                try {
-                    outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-                    outputStream.write(fileContents.getBytes());
-                    outputStream.close();
-                } catch (Exception e) {
+                PrintWriter out = null;
+                try{
+                    out = new PrintWriter(new FileOutputStream(filename, true));
+                }
+                catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
+                out.print(fileContents);
+                out.flush();
             }
         });
+
+
     }
 }
